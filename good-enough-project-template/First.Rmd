@@ -1,0 +1,59 @@
+---
+title: "testversion"
+author: "Peter"
+date: "11-11-2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(nlme)
+library(dplyr)
+
+testdata <- read.table("c:/software/rproject/workshop/dataset.txt", 
+                       sep=",", header=TRUE )
+
+check_num <- function(data, who_to_test){
+  
+  to_test <- who_to_test
+  assign(waarden, paste0("testdata$",to_test))
+  aantal <- sum(is.na(waarden)) 
+  return(aantal)
+}
+
+plotjes <- function(data, title, S.or.T){
+  
+  value=S.or.T
+  if (value=="S"){values=testdata$CountS} else if (value=="T") {values=testdata$CountT}
+  p <- ggplot ( testdata , aes ( x = weeknr, y = values )) +
+  geom_point()+
+  ggtitle(title)
+
+  return(p)
+  
+}
+  
+
+```
+
+## R Markdown
+
+```{r read_data}
+#p <- ggplot ( testdata , aes ( x = weeknr, y = CountS )) +
+#  geom_point()+
+#  ggtitle("The plot")
+#print(p)
+
+#p <- ggplot ( testdata , aes ( x = weeknr, y = CountT )) +
+#  geom_point()+
+#  ggtitle("The plot")
+#print(p)
+
+plotjes(testdata, "S counts", "S"); print(p)
+plotjes(testdata, "T counts", "T"); print(p)
+
+testdata <- subset(testdata, !is.na(testdata$CountT))
+m1 <- lme(CountT ~ as.factor(weeknr), random=~1|number, data=testdata, method="ML")
+summary(m1)
+```
