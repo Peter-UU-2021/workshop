@@ -1,5 +1,7 @@
 # [Simple Goat Data]
 
+## The idea is read in the data and make a simple plot and regression
+
 ## Project organization
 - PG = project-generated
 - HW = human-writable
