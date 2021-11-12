@@ -4,6 +4,9 @@
 
 This creates two plots which are created in a function
 
+## Requires Windows10, R4.1.2
+and packages ggplot (3.3.5), dplyr (1.0.7) , nlme (3.1-152)
+
 ## None
 - PG = project-generated
 - HW = human-writable
