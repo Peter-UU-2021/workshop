@@ -14,14 +14,7 @@ library(dplyr)
 testdata <- read.table("c:/software/rproject/workshop/dataset.txt", 
                        sep=",", header=TRUE )
 
-check_num <- function(data, who_to_test){
-  
-  to_test <- who_to_test
-  assign(waarden, paste0("testdata$",to_test))
-  aantal <- sum(is.na(waarden)) 
-  return(aantal)
-}
-
+##Function to make plots
 plotjes <- function(data, title, S.or.T){
   
   value=S.or.T
@@ -39,18 +32,10 @@ plotjes <- function(data, title, S.or.T){
 
 ## R Markdown
 
-```{r read_data}
-#p <- ggplot ( testdata , aes ( x = weeknr, y = CountS )) +
-#  geom_point()+
-#  ggtitle("The plot")
-#print(p)
+```{r plot_data}
 
-#p <- ggplot ( testdata , aes ( x = weeknr, y = CountT )) +
-#  geom_point()+
-#  ggtitle("The plot")
-#print(p)
 
-plotjes(testdata, "S counts", "S"); print(p)
+plotjes(testdata, "S counts", "S"); print(p) ##use the plot function
 plotjes(testdata, "T counts", "T"); print(p)
 
 testdata <- subset(testdata, !is.na(testdata$CountT))
