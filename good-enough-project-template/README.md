@@ -1,4 +1,4 @@
-# [PROJECT NAME]
+# [Simple Goat Data]
 
 ## Project organization
 - PG = project-generated
