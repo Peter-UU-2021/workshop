@@ -2,7 +2,9 @@
 
 ## The idea is read in the data and make a simple plot and regression
 
-## Project organization
+This creates two plots which are created in a function
+
+## None
 - PG = project-generated
 - HW = human-writable
 - RO = read only
