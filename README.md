@@ -1,3 +1,3 @@
 # workshop
 Dit is een eerste probeersel met git
-En dit eraan toegvoegd
+En dit eraan toegevoegd moet het zijn
